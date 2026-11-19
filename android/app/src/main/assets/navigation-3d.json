@@ -1,0 +1,223 @@
+{
+  "version": 8,
+  "name": "Walkline translucent walking map",
+  "glyphs": "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf",
+  "sources": {
+    "openmaptiles": {
+      "type": "vector",
+      "url": "https://tiles.openfreemap.org/planet"
+    }
+  },
+  "light": {
+    "anchor": "viewport",
+    "color": "#bed5ff",
+    "intensity": 0.48,
+    "position": [
+      1.5,
+      205,
+      40
+    ]
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "#111b2e"
+      }
+    },
+    {
+      "id": "land",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "paint": {
+        "fill-color": "#18283b",
+        "fill-opacity": 0.45
+      }
+    },
+    {
+      "id": "parks",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "filter": [
+        "in",
+        "class",
+        "park",
+        "cemetery",
+        "recreation_ground"
+      ],
+      "paint": {
+        "fill-color": "#1b3440",
+        "fill-opacity": 0.6
+      }
+    },
+    {
+      "id": "water",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "water",
+      "paint": {
+        "fill-color": "#102e45"
+      }
+    },
+    {
+      "id": "road-casing",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "!in",
+        "class",
+        "path",
+        "rail",
+        "transit"
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
+      "paint": {
+        "line-color": "#8594ae",
+        "line-opacity": 0.45,
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          12,
+          1,
+          16,
+          5,
+          18,
+          16,
+          20,
+          48
+        ]
+      }
+    },
+    {
+      "id": "roads",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "!in",
+        "class",
+        "path",
+        "rail",
+        "transit"
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
+      "paint": {
+        "line-color": "#35475e",
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          12,
+          0.5,
+          16,
+          3,
+          18,
+          12,
+          20,
+          42
+        ]
+      }
+    },
+    {
+      "id": "paths",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "==",
+        "class",
+        "path"
+      ],
+      "minzoom": 17.5,
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
+      "paint": {
+        "line-color": "#7797ac",
+        "line-opacity": 0.36,
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          15,
+          1,
+          20,
+          5
+        ],
+        "line-dasharray": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "id": "building-footprints",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "building",
+      "minzoom": 15,
+      "paint": {
+        "line-color": "#7295bb",
+        "line-width": 0.7,
+        "line-opacity": 0.12
+      }
+    },
+    {
+      "id": "street-labels",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "transportation_name",
+      "minzoom": 15,
+      "layout": {
+        "symbol-placement": "line",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            "name:latin"
+          ],
+          [
+            "get",
+            "name"
+          ]
+        ],
+        "text-font": [
+          "Noto Sans Regular"
+        ],
+        "text-size": 11,
+        "text-padding": 18,
+        "text-keep-upright": true
+      },
+      "paint": {
+        "text-color": "#c5d3e5",
+        "text-halo-color": "#101b2d",
+        "text-halo-width": 1.5,
+        "text-opacity": 0.85
+      }
+    }
+  ]
+}

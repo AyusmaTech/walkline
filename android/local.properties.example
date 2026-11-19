@@ -1,0 +1,6 @@
+sdk.dir=/path/to/Android/sdk
+# Android key: restrict to com.tobenamed.app + the signing SHA-1 and Maps SDK for Android.
+MAPS_API_KEY=
+# Private proxy URL. Android emulator -> host computer. Release builds require HTTPS.
+NAV_API_BASE_URL=http://10.0.2.2:8080
+NAV_API_TOKEN=

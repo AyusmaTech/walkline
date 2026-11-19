@@ -1,0 +1,9 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' blob:; style-src 'self' 'unsafe-inline'; connect-src 'self' https://tiles.openfreemap.org; img-src 'self' data: blob:; worker-src 'self' blob:; font-src 'self';">
+<link rel="stylesheet" href="vendor/maplibre-gl.css">
+<style>html,body,#map{margin:0;width:100%;height:100vh;overflow:hidden;background:#141d31} .maplibregl-ctrl-attrib{background:rgba(16,24,42,.88)!important;color:#a8bdd8!important;font:10px sans-serif} .maplibregl-ctrl-attrib a{color:#a8bdd8!important} .maplibregl-ctrl-attrib-button{filter:invert(.8)} .maplibregl-ctrl-bottom-left{bottom:3px;left:5px} canvas{outline:none}</style>
+</head><body><div id="map" aria-label="3D walking navigation map"></div>
+<svg id="viewpoint" aria-label="Your viewpoint" role="img" viewBox="0 0 48 48" style="display:none;position:absolute;left:50%;transform:translate(-50%,-50%);width:32px;height:32px;pointer-events:none">
+<circle cx="24" cy="24" r="23" fill="#27e5d1" fill-opacity=".18"/><path d="M24 7L38 39L24 32L10 39Z" fill="#e7fffb" stroke="#10243c" stroke-width="3" stroke-linejoin="round"/>
+</svg><script src="vendor/maplibre-gl.js"></script><script src="scene.js"></script></body></html>
